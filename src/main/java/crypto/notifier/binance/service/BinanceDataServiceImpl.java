@@ -3,16 +3,13 @@ package crypto.notifier.data.service;
 import com.binance.api.client.BinanceApiAsyncRestClient;
 import com.binance.api.client.BinanceApiRestClient;
 import com.binance.api.client.domain.market.*;
-import crypto.notifier.data.service.model.SymbolAggTradesStatistics;
-import crypto.notifier.data.service.model.AllSymbolAggTradesStatistics;
+import crypto.notifier.data.service.model.SymbolStats;
+import crypto.notifier.data.service.model.AllSymbolStats;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class BinanceDataServiceImpl implements  BinanceDataService{
@@ -45,38 +42,38 @@ public class BinanceDataServiceImpl implements  BinanceDataService{
 //        return mostAggresivelyBoughtSymbols;
 //    }
 
-    public AllSymbolAggTradesStatistics getMostAgressivelyBoughtBTCSymbols(int numberOfSymbolsToReturn){
+    public AllSymbolStats getMostAgressivelyBoughtBTCSymbols(int numberOfSymbolsToReturn){
         List<String> symbols = getAllBTCSymbols();
-        AllSymbolAggTradesStatistics allSymbolAggTradesStatistics = new AllSymbolAggTradesStatistics();
+        AllSymbolStats allSymbolStats = new AllSymbolStats();
 
         symbols.stream()
                 .forEach(symbol -> {
                     List<AggTrade> aggTrades = client.getAggTrades(symbol);
-                    allSymbolAggTradesStatistics.getSymbolStatistics()
-                            .add(new SymbolAggTradesStatistics(aggTrades, symbol));
+                    allSymbolStats.getSymbolStatistics()
+                            .add(new SymbolStats(aggTrades, symbol));
                 });
 
-        allSymbolAggTradesStatistics.calculateTopSymbolsWithMostAgressiveBuys(10);
+        allSymbolStats.calculateTopSymbolsWithMostAgressiveBuys(10);
 
-        return allSymbolAggTradesStatistics;
+        return allSymbolStats;
     }
 
-    public List<SymbolAggTradesStatistics> getVolumeWeightedMostAgressivelyBoughtBTCSymbols(int numberOfSymabolsToReturn){
+    public List<SymbolStats> getVolumeWeightedMostAgressivelyBoughtBTCSymbols(int numberOfSymabolsToReturn){
         List<String> symbols = getAllBTCSymbols();
-        AllSymbolAggTradesStatistics allSymbolAggTradesStatistics = new AllSymbolAggTradesStatistics();
+        AllSymbolStats allSymbolStats = new AllSymbolStats();
 
-        List<SymbolAggTradesStatistics> symbolAggTradesStatistics = symbols.stream()
+        List<SymbolStats> symbolAggTradesStatistics = symbols.stream()
                 .map(symbol -> {
                     List<AggTrade> aggTrades = client.getAggTrades(symbol);
-                    return new SymbolAggTradesStatistics(aggTrades, symbol);
+                    return new SymbolStats(aggTrades, symbol);
                 })
                 .collect(Collectors.toList());
-        allSymbolAggTradesStatistics.setSymbolStatistics(symbolAggTradesStatistics);
+        allSymbolStats.setSymbolStatistics(symbolAggTradesStatistics);
 
-        List<SymbolAggTradesStatistics> symbolAggTradesStatisticsTopAndSorted =
-                allSymbolAggTradesStatistics.calculateVolumeWeightedTopSymbolsWithMostAgressiveBuys(10);
+        List<SymbolStats> symbolStatsTopAndSorted =
+                allSymbolStats.calculateVolumeWeightedTopSymbolsWithMostAgressiveBuys(10);
 
-        return symbolAggTradesStatisticsTopAndSorted;
+        return symbolStatsTopAndSorted;
     }
 
     public List<String> getAllBTCSymbols(){

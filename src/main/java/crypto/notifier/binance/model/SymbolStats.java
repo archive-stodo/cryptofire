@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SymbolAggTradesStatistics {
+public class SymbolStats {
     List<AggTrade> aggTrades = new ArrayList<>();
     long numberOfAggressiveBuys = 0;
     BigDecimal aggressiveBuysVolume;
@@ -15,10 +15,10 @@ public class SymbolAggTradesStatistics {
 
     String symbol;
 
-    public SymbolAggTradesStatistics() {
+    public SymbolStats() {
     }
 
-    public SymbolAggTradesStatistics(List<AggTrade> aggTrades, String symbol) {
+    public SymbolStats(List<AggTrade> aggTrades, String symbol) {
         super();
         this.aggTrades = aggTrades;
         this.symbol = symbol;
