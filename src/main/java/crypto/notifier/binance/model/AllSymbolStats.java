@@ -1,4 +1,4 @@
-package crypto.notifier.data.service.model;
+package crypto.notifier.binance.model;
 
 import java.util.ArrayList;
 import java.util.Comparator;

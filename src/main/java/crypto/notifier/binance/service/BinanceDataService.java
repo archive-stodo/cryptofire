@@ -1,6 +1,4 @@
-package crypto.notifier.data.service;
-
-import java.util.List;
+package crypto.notifier.binance.service;
 
 public interface BinanceDataService {
 

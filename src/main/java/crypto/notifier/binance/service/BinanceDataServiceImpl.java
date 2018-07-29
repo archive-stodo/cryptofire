@@ -1,10 +1,10 @@
-package crypto.notifier.data.service;
+package crypto.notifier.binance.service;
 
 import com.binance.api.client.BinanceApiAsyncRestClient;
 import com.binance.api.client.BinanceApiRestClient;
 import com.binance.api.client.domain.market.*;
-import crypto.notifier.data.service.model.SymbolStats;
-import crypto.notifier.data.service.model.AllSymbolStats;
+import crypto.notifier.binance.model.AllSymbolStats;
+import crypto.notifier.binance.model.SymbolStats;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,28 +19,6 @@ public class BinanceDataServiceImpl implements  BinanceDataService{
 
     @Autowired
     BinanceApiAsyncRestClient asyncClient;
-
-    //return top 10
-//    public LinkedHashMap<String, Long> getMostAgressivelyBoughtBTCSymbols(int numberOfSymbolsToReturn){
-//        List<String> tickerNames = getAllBTCSymbols();
-//        Map<String, Long> symbolsWithNumberOfAgressiveBuys = new TreeMap<>();
-//        LinkedHashMap<String, Long> mostAggresivelyBoughtSymbols;
-//
-//        tickerNames.stream()
-//                .forEach(tickerName -> {
-//                    List<AggTrade> aggTrades = client.getAggTrades(tickerName);
-//                    long numberOfAggresiveBuys = getNumberOfAggressiveBuys(aggTrades);
-//                    symbolsWithNumberOfAgressiveBuys.put(tickerName, numberOfAggresiveBuys);
-//                });
-//
-//        mostAggresivelyBoughtSymbols = symbolsWithNumberOfAgressiveBuys.entrySet().stream()
-//                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-//                .limit(numberOfSymbolsToReturn)
-//                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-//                        (e1, e2) -> e2, LinkedHashMap::new));
-//
-//        return mostAggresivelyBoughtSymbols;
-//    }
 
     public AllSymbolStats getMostAgressivelyBoughtBTCSymbols(int numberOfSymbolsToReturn){
         List<String> symbols = getAllBTCSymbols();
