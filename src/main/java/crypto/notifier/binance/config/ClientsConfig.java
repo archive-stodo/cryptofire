@@ -1,4 +1,4 @@
-package crypto.notifier.data.config;
+package crypto.notifier.binance.config;
 
 import com.binance.api.client.BinanceApiAsyncRestClient;
 import com.binance.api.client.BinanceApiClientFactory;
