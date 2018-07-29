@@ -1,5 +1,8 @@
 package crypto.notifier.binance.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import crypto.notifier.config.BigDecimalSerializer;
+
 import javax.persistence.Entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -8,7 +11,10 @@ import java.time.LocalDateTime;
 public class AggTrade extends BaseEntity{
     private int symbolId;
     private int aggTradeId;
+
+    @JsonSerialize(using = BigDecimalSerializer.class)
     private BigDecimal quantity;
+
     private LocalDateTime tradeTime;
     private boolean isBuyerMaker;
 
