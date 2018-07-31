@@ -1,5 +1,5 @@
 create table AGG_TRADE (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     symbol_id INTEGER REFERENCES SYMBOL(id),
     agg_trade_id INTEGER not null,
    	quantity decimal(30,15),

@@ -3,12 +3,21 @@ package crypto.notifier.binance.entity;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import crypto.notifier.config.BigDecimalSerializer;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-public class AggTrade extends BaseEntity{
+public class AggTrade{
+    @Id
+    @SequenceGenerator(name = "agg_trade_id_seq",
+            sequenceName = "agg_trade_id_seq",
+            allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "agg_trade_id_seq")
+    @Column(name = "id", updatable = false)
+    private int id;
+
     private int symbolId;
     private int aggTradeId;
 
