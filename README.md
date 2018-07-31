@@ -13,10 +13,13 @@ Aims of the project:
   
  
  A user should also be able to define certain conditions on occurrence of which he should notified by mail.
+ 
  (ex1. current daily volume more than x times greater than average volume from the last y days)
+ 
  (ex2. hammer on a daily chart)
  
  Finally, combining these rules to create more sophistcated ones will give even greater flexibility
+ 
  -> Notify me when ex1 = true amd ex2 = true
  
  ----------------------------------------------------------------------------------------------------------
