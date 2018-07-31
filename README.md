@@ -32,7 +32,9 @@ Aims of the project:
  
  
  isBuyerMaker is a boolean -> 
+ 
  if it is true, it means that a seller decided to sell immediately - AGRESSIVE SELL
+ 
  if it is false, it means that a buyer decided to buy immediately - AGRESSIVE BUY
  
  
@@ -45,8 +47,7 @@ Percentage of Aggresive Buys Value Traded (ABVT%) = ( ABVT/ATVT ) * 100
 
 The higher the ABVT% the more agressively an instrument is bought.
 
-BinanceDataServiceImpl
 
-  .getVolumeWeightedMostAgressivelyBoughtBTCSymbols(int numberOfSymabolsToReturn)
-  
-   returns most agressively bought BTC symbols.
+BinanceDataServiceImpl.getVolumeWeightedMostAgressivelyBoughtBTCSymbols(int numberOfSymabolsToReturn)
+
+   returns most agressively bought BTC symbols
