@@ -1,7 +1,7 @@
 # cryptofire
 
 Aims of the project:
-* Use cryptocurrency exchanges APIs to calculate/detect whatever can be usefull for traders:
+  Use cryptocurrency exchanges APIs to calculate/detect whatever can be usefull for traders:
 
   -> hedging opportunities between exchanges
   
