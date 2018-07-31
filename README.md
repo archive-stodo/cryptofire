@@ -21,7 +21,7 @@ Aims of the project:
  
  Finally, combining these rules to create more sophistcated ones will give even greater flexibility
  
- -> Notify me when ex1 = true amd ex2 = true
+ -> Notify me when ex1 = true and ex2 = true
  
  ----------------------------------------------------------------------------------------------------------
  What is done:
