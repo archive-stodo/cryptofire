@@ -2,10 +2,15 @@
 
 Aims of the project:
 * Use cryptocurrency exchanges APIs to calculate/detect whatever can be usefull for traders:
+
   -> hedging opportunities between exchanges
+  
   -> detecting candlestick patterns like hammer/pinbar
+  
   -> detecting abnormal volumes
+  
   -> calculating various indicators
+  
  
  A user should also be able to define certain conditions on occurrence of which he should notified by mail.
  (ex1. current daily volume more than x times greater than average volume from the last y days)
