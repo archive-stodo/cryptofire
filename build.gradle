@@ -55,5 +55,6 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.3.3.Final'
 
+
 }
 
