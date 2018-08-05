@@ -18,7 +18,10 @@ public class AggTrade{
     @Column(name = "id", updatable = false)
     private int id;
 
-    private int symbolId;
+    @ManyToOne
+    @JoinColumn(name = "symbol_id")
+    private Symbol symbol;
+
     private int aggTradeId;
 
     @JsonSerialize(using = BigDecimalSerializer.class)
@@ -30,16 +33,20 @@ public class AggTrade{
     public AggTrade() {
     }
 
-    public AggTrade(int symbolId) {
-        this.symbolId = symbolId;
+    public int getId() {
+        return id;
     }
 
-    public int getSymbolId() {
-        return symbolId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setSymbolId(int symbolId) {
-        this.symbolId = symbolId;
+    public Symbol getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(Symbol symbol) {
+        this.symbol = symbol;
     }
 
     public int getAggTradeId() {

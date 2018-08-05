@@ -5,6 +5,7 @@ import crypto.notifier.config.BigDecimalSerializer;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 public class Symbol {
@@ -25,6 +26,13 @@ public class Symbol {
 
     @JsonSerialize(using = BigDecimalSerializer.class)
     private BigDecimal currentBidPrice;
+
+    @OneToMany(mappedBy = "symbol",
+            cascade = { CascadeType.PERSIST,
+                        CascadeType.DETACH,
+                        CascadeType.MERGE,
+                        CascadeType.REFRESH})
+    private List<AggTrade> aggTrades;
 
     public Symbol() {
     }
