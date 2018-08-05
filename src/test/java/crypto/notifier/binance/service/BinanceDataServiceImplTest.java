@@ -18,6 +18,9 @@ public class BinanceDataServiceImplTest {
     @Autowired
     BinanceDataServiceImpl client;
 
+    @Autowired
+    SymbolService symbolService;
+
     private static final int NUMBER_OF_SYMBOLS_TO_RETURN = 10;
 
     @Test

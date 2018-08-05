@@ -18,7 +18,7 @@ public class SymbolController{
 
     @GetMapping("/symbols")
     public List<Symbol> getAllSymbols(){
-        List<Symbol> symbols = symbolService.findAll();
+        List<Symbol> symbols = symbolService.updateAllBTCSymbolsInDb();
         return symbols;
     }
 

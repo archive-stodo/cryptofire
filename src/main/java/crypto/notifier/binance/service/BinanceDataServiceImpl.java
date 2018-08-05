@@ -18,10 +18,10 @@ public class BinanceDataServiceImpl implements  BinanceDataService{
     BinanceApiRestClient client;
 
     @Autowired
-    BinanceApiAsyncRestClient asyncClient;
+    SymbolService symbolService;
 
     public AllSymbolStats getMostAgressivelyBoughtBTCSymbols(int numberOfSymbolsToReturn){
-        List<String> symbols = getAllBTCSymbols();
+        List<String> symbols = symbolService.getAllBTCSymbols();
         AllSymbolStats allSymbolStats = new AllSymbolStats();
 
         symbols.stream()
@@ -37,7 +37,7 @@ public class BinanceDataServiceImpl implements  BinanceDataService{
     }
 
     public List<SymbolStats> getVolumeWeightedMostAgressivelyBoughtBTCSymbols(int numberOfSymabolsToReturn){
-        List<String> symbols = getAllBTCSymbols();
+        List<String> symbols = symbolService.getAllBTCSymbols();
         AllSymbolStats allSymbolStats = new AllSymbolStats();
 
         List<SymbolStats> symbolAggTradesStatistics = symbols.stream()
@@ -52,12 +52,5 @@ public class BinanceDataServiceImpl implements  BinanceDataService{
                 allSymbolStats.calculateVolumeWeightedTopSymbolsWithMostAgressiveBuys(10);
 
         return symbolStatsTopAndSorted;
-    }
-
-    public List<String> getAllBTCSymbols(){
-        return client.getAllPrices().stream()
-                .map(asset -> asset.getSymbol())
-                .filter(s -> s.endsWith("BTC"))
-                .collect(Collectors.toList());
     }
 }

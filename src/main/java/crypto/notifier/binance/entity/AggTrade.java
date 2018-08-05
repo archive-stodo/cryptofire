@@ -14,7 +14,7 @@ public class AggTrade{
             sequenceName = "agg_trade_id_seq",
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "agg_trade_id_seq")
+            generator = "aggTrade_id_seq")
     @Column(name = "id", updatable = false)
     private int id;
 
